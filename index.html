@@ -7,6 +7,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="icon" href="./assets/favicon.ico" type="image/x-icon">
+
     <script>
     tailwind.config = {
         theme: {
@@ -571,7 +573,8 @@
                         <div>
                             <div class="flex items-center mb-6">
                                 <div class="w-12 md:w-16 h-12 md:h-16 bg-purple-100 rounded-lg flex items-center justify-center mr-4">
-                                    <i class="fas fa-rocket text-purple-600 text-xl md:text-2xl"></i>
+                                    <!-- <i class="fas fa-rocket text-purple-600 text-xl md:text-2xl"></i> -->
+                                     <img src="./assets/hive.webp" alt="hive logo" class="w-8 h-8">
                                 </div>
                                 <div>
                                     <h3 class="text-xl md:text-2xl font-bold text-gray-900">The Hive Incubator</h3>
@@ -911,7 +914,7 @@
     </footer>
 
     <!-- Mobile Menu -->
-    <div id="mobile-menu" class="fixed inset-0  z-50 hidden glass-morphism">
+    <div id="mobile-menu" class="fixed inset-0  z-50 hidden glass-morphism" style="background-image: url('./assets/bg.jpg');">
         <div class="flex justify-end p-6">
             <button id="mobile-menu-close" class="text-gray-700 hover:text-primary">
                 <i class="fas fa-times text-2xl"></i>

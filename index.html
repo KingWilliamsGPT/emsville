@@ -16,14 +16,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
     <link rel="icon" href="./assets/favicon.ico" type="image/x-icon">
-
+    <style>
+        @font-face {
+            font-family: 'Futura Book';
+            src: url('./assets/fonts/Futura-Book.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+    </style>
     <script>
         tailwind.config = {
             darkMode: 'class',
             theme: {
                 extend: {
                     fontFamily: {
-                        'inter': ['Inter', 'sans-serif']
+                        'futura': [ 'Futura Book', 'Inter', 'sans-serif']
                     },
                     colors: {
                         'primary': '#8B5CF6',
@@ -55,8 +62,10 @@
     </script>
     <style>
         * {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Futura Book', 'Inter', sans-serif;
         }
+
+        
 
         html {
             scroll-behavior: smooth;
@@ -338,6 +347,7 @@
             color: #0F172A;
         }
     </style>
+
 </head>
 
 <body class="bg-white text-gray-900 font-inter">

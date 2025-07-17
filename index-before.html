@@ -19,7 +19,6 @@
 
     <script>
         tailwind.config = {
-            darkMode: 'class',
             theme: {
                 extend: {
                     fontFamily: {
@@ -32,11 +31,7 @@
                         'accent': '#F472B6',
                         'dark': '#111827',
                         'light-gray': '#F8FAFC',
-                        'medium-gray': '#64748B',
-                        'dark-bg': '#0F172A',
-                        'dark-card': '#1E293B',
-                        'dark-text': '#E2E8F0',
-                        'dark-border': '#334155'
+                        'medium-gray': '#64748B'
                     },
                     backgroundImage: {
                         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
@@ -74,11 +69,6 @@
             border: 1px solid rgba(255, 255, 255, 0.18);
         }
 
-        .dark .glass-morphism {
-            background: rgba(15, 23, 42, 0.7);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
         .card-hover {
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
@@ -86,10 +76,6 @@
         .card-hover:hover {
             transform: translateY(-8px);
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-        }
-
-        .dark .card-hover:hover {
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
         }
 
         .btn-primary {
@@ -144,10 +130,6 @@
             position: relative;
         }
 
-        .dark .hero-bg {
-            background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
-        }
-
         .hero-bg::before {
             content: '';
             position: absolute;
@@ -164,15 +146,39 @@
             margin-bottom: 2rem;
         }
 
+        /*
+    .process-step::before {
+        content: '';
+        position: absolute;
+        top: 40px;
+        left: 50%;
+        width: 2px;
+        height: calc(100% - 80px);
+        background: linear-gradient(to bottom, #8B5CF6, #EC4899);
+        transform: translateX(-50%);
+    }*/
+
+        .process-step:last-child::before {
+            display: none;
+        }
+
+        @media (min-width: 1024px) {
+            /* .process-step::before {
+            top: 50%;
+            left: auto;
+            right: -50px;
+            width: 100px;
+            height: 2px;
+            transform: translateY(-50%);
+            background: linear-gradient(90deg, #8B5CF6, #EC4899);
+        } */
+        }
+
         .floating-shape {
             position: absolute;
             border-radius: 50%;
             background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(236, 72, 153, 0.1));
             animation: float 6s ease-in-out infinite;
-        }
-
-        .dark .floating-shape {
-            background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(236, 72, 153, 0.2));
         }
 
         @keyframes float {
@@ -204,11 +210,6 @@
             background: rgba(255, 255, 255, 0.8);
             backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .dark .testimonial-card {
-            background: rgba(30, 41, 59, 0.8);
-            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .nav-link {
@@ -280,62 +281,10 @@
             z-index: 1000;
         }
 
-        .dark .circle {
-            border-color: #64748B;
-            background-color: #1E293Bdb;
-        }
-
         @media (max-width: 768px) {
             .circle {
                 display: none;
             }
-        }
-
-        /* Dark mode toggle button */
-        .theme-toggle {
-            position: relative;
-            width: 50px;
-            height: 24px;
-            border-radius: 12px;
-            background: #E2E8F0;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .dark .theme-toggle {
-            background: #334155;
-        }
-
-        .theme-toggle-inner {
-            position: absolute;
-            top: 2px;
-            left: 2px;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            background: white;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .dark .theme-toggle-inner {
-            left: calc(100% - 22px);
-            background: #0F172A;
-        }
-
-        .theme-toggle i {
-            font-size: 12px;
-            color: #64748B;
-        }
-
-        .dark .theme-toggle i.fa-sun {
-            color: #E2E8F0;
-        }
-
-        .light .theme-toggle i.fa-moon {
-            color: #0F172A;
         }
     </style>
 </head>
@@ -348,35 +297,28 @@
             <div class="flex items-center justify-between h-16">
                 <div class="flex items-center">
                     <div class="flex-shrink-0">
-                        <span class="text-2xl font-bold text-gray-900 dark:text-white">
+                        <span class="text-2xl font-bold text-gray-900">
                             <!-- <span class="gradient-text">Emsville</span> Pro Inc. -->
-                            <img src="assets/logo.png" alt="" style="width: 112px;" class="dark:hidden">
-                            <img src="assets/logo-whitish.png" alt="" style="width: 112px;" class="hidden dark:block">
+                            <img src="assets/logo.png" alt="" style="width: 112px;">
                         </span>
                     </div>
                 </div>
                 <div class="hidden lg:block">
                     <div class="ml-10 flex items-baseline space-x-8">
-                        <a href="#home" class="nav-link text-gray-700 hover:text-primary font-medium dark:text-gray-300 dark:hover:text-primary">Home</a>
-                        <a href="#about" class="nav-link text-gray-700 hover:text-primary font-medium dark:text-gray-300 dark:hover:text-primary">About</a>
-                        <a href="#services" class="nav-link text-gray-700 hover:text-primary font-medium dark:text-gray-300 dark:hover:text-primary">Services</a>
-                        <a href="#case-studies" class="nav-link text-gray-700 hover:text-primary font-medium dark:text-gray-300 dark:hover:text-primary">Case
+                        <a href="#home" class="nav-link text-gray-700 hover:text-primary font-medium">Home</a>
+                        <a href="#about" class="nav-link text-gray-700 hover:text-primary font-medium">About</a>
+                        <a href="#services" class="nav-link text-gray-700 hover:text-primary font-medium">Services</a>
+                        <a href="#case-studies" class="nav-link text-gray-700 hover:text-primary font-medium">Case
                             Studies</a>
-                        <a href="#workflow" class="nav-link text-gray-700 hover:text-primary font-medium dark:text-gray-300 dark:hover:text-primary">Process</a>
-                        <a href="#contact" class="nav-link text-gray-700 hover:text-primary font-medium dark:text-gray-300 dark:hover:text-primary">Contact</a>
+                        <a href="#workflow" class="nav-link text-gray-700 hover:text-primary font-medium">Process</a>
+                        <a href="#contact" class="nav-link text-gray-700 hover:text-primary font-medium">Contact</a>
                     </div>
                 </div>
                 <div class="hidden lg:flex items-center space-x-4">
-                    <button id="theme-toggle" class="theme-toggle flex items-center justify-center">
-                        <div class="theme-toggle-inner">
-                            <i class="fas fa-moon dark:hidden"></i>
-                            <i class="fas fa-sun hidden dark:block"></i>
-                        </div>
-                    </button>
                     <button class="btn-primary text-white px-6 py-2 rounded-lg font-medium">Get Started</button>
                 </div>
                 <div class="lg:hidden">
-                    <button id="mobile-menu-btn" class="text-gray-700 hover:text-primary dark:text-gray-300 dark:hover:text-primary">
+                    <button id="mobile-menu-btn" class="text-gray-700 hover:text-primary">
                         <i class="fas fa-bars text-xl"></i>
                     </button>
                 </div>
@@ -393,11 +335,11 @@
         <div class="container mx-auto px-4  sm:px-6 lg:px-8 relative z-10 pb-20" style="padding-top: 8.3rem;">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
                 <div class="animate-on-scroll">
-                    <h1 class="text-4xl md:text-5xl lg:text-7xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
+                    <h1 class="text-4xl md:text-5xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight">
                         Empowering Businesses with
                         <span class="gradient-text">Strategic Clarity</span>
                     </h1>
-                    <p class="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
+                    <p class="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed">
                         Transform your organization with data-driven insights, operational excellence, and strategic
                         consulting that delivers measurable results.
                     </p>
@@ -408,7 +350,7 @@
                             Book Consultation
                         </button>
                         <button
-                            class="border-2 border-gray-300 text-gray-700 hover:border-primary hover:text-primary px-6 py-3 md:px-8 md:py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center dark:border-gray-600 dark:text-gray-300 dark:hover:border-primary dark:hover:text-primary">
+                            class="border-2 border-gray-300 text-gray-700 hover:border-primary hover:text-primary px-6 py-3 md:px-8 md:py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center">
                             <i class="fas fa-play mr-2"></i>
                             Watch Demo
                         </button>
@@ -416,16 +358,16 @@
                     <div
                         class="mt-8 md:mt-12 flex flex-col sm:flex-row items-center justify-center sm:justify-start space-y-4 sm:space-y-0 sm:space-x-8">
                         <div class="text-center">
-                            <div class="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white">50+</div>
-                            <div class="text-sm text-gray-600 dark:text-gray-400">Projects Completed</div>
+                            <div class="text-2xl md:text-3xl font-bold text-gray-900">50+</div>
+                            <div class="text-sm text-gray-600">Projects Completed</div>
                         </div>
                         <div class="text-center">
-                            <div class="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white">98%</div>
-                            <div class="text-sm text-gray-600 dark:text-gray-400">Client Satisfaction</div>
+                            <div class="text-2xl md:text-3xl font-bold text-gray-900">98%</div>
+                            <div class="text-sm text-gray-600">Client Satisfaction</div>
                         </div>
                         <div class="text-center">
-                            <div class="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white">5+</div>
-                            <div class="text-sm text-gray-600 dark:text-gray-400">Years Experience</div>
+                            <div class="text-2xl md:text-3xl font-bold text-gray-900">5+</div>
+                            <div class="text-sm text-gray-600">Years Experience</div>
                         </div>
                     </div>
                 </div>
@@ -442,23 +384,23 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="section-padding bg-light-gray dark:bg-dark-bg">
+    <section id="about" class="section-padding bg-light-gray">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid lg:grid-cols-2 gap-12 md:gap-16 items-center">
                 <div class="slide-in-left magnet">
                     <img src="./assets/fola.jpeg" alt="Folajomi Adegbulugbe" class="rounded-2xl shadow-xl w-full">
                 </div>
                 <div class="slide-in-right">
-                    <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+                    <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
                         About <span class="gradient-text">Emsville Pro Inc.</span>
                     </h2>
                     <div class="section-divider"></div>
-                    <p class="text-base md:text-lg text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+                    <p class="text-base md:text-lg text-gray-600 mb-6 leading-relaxed">
                         Led by <strong>Folajomi Adegbulugbe</strong>, a seasoned management consultant with a proven
                         track record of transforming businesses across diverse industries. Our approach combines
                         strategic thinking with operational excellence to deliver sustainable results.
                     </p>
-                    <p class="text-base md:text-lg text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
+                    <p class="text-base md:text-lg text-gray-600 mb-8 leading-relaxed">
                         We specialize in helping organizations navigate complex challenges, optimize performance, and
                         achieve breakthrough growth through data-driven insights and innovative solutions.
                     </p>
@@ -468,8 +410,8 @@
                                 <i class="fas fa-chart-line text-primary text-xl"></i>
                             </div>
                             <div>
-                                <div class="font-semibold text-gray-900 dark:text-white">Strategic Focus</div>
-                                <div class="text-sm text-gray-600 dark:text-gray-400">Data-driven decisions</div>
+                                <div class="font-semibold text-gray-900">Strategic Focus</div>
+                                <div class="text-sm text-gray-600">Data-driven decisions</div>
                             </div>
                         </div>
                         <div class="flex items-center">
@@ -477,8 +419,8 @@
                                 <i class="fas fa-users text-secondary text-xl"></i>
                             </div>
                             <div>
-                                <div class="font-semibold text-gray-900 dark:text-white">Client-Centric</div>
-                                <div class="text-sm text-gray-600 dark:text-gray-400">Tailored solutions</div>
+                                <div class="font-semibold text-gray-900">Client-Centric</div>
+                                <div class="text-sm text-gray-600">Tailored solutions</div>
                             </div>
                         </div>
                     </div>
@@ -488,14 +430,14 @@
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="section-padding bg-white dark:bg-dark-bg">
+    <section id="services" class="section-padding bg-white">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12 md:mb-16">
-                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4 animate-on-scroll">
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 animate-on-scroll">
                     Our <span class="gradient-text">Services</span>
                 </h2>
                 <div class="section-divider"></div>
-                <p class="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto animate-on-scroll">
+                <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto animate-on-scroll">
                     Comprehensive consulting solutions designed to accelerate your business growth and operational
                     excellence.
                 </p>
@@ -503,12 +445,12 @@
 
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
                 <div
-                    class="bg-white dark:bg-dark-card rounded-2xl p-6 md:p-8 shadow-lg card-hover animate-on-scroll border border-gray-100 dark:border-dark-border">
+                    class="bg-white rounded-2xl p-6 md:p-8 shadow-lg card-hover animate-on-scroll border border-gray-100">
                     <div class="service-icon">
                         <i class="fas fa-chess-king"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">Strategy Consulting</h3>
-                    <ul class="space-y-3 text-gray-600 dark:text-gray-300">
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Strategy Consulting</h3>
+                    <ul class="space-y-3 text-gray-600">
                         <li class="flex items-start">
                             <i class="fas fa-check text-primary mr-3 mt-1"></i>
                             Business growth strategies
@@ -524,13 +466,13 @@
                     </ul>
                 </div>
 
-                <div class="bg-white dark:bg-dark-card rounded-2xl p-6 md:p-8 shadow-lg card-hover animate-on-scroll border border-gray-100 dark:border-dark-border"
+                <div class="bg-white rounded-2xl p-6 md:p-8 shadow-lg card-hover animate-on-scroll border border-gray-100"
                     style="transition-delay: 0.1s;">
                     <div class="service-icon">
                         <i class="fas fa-cogs"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">Operations & Performance</h3>
-                    <ul class="space-y-3 text-gray-600 dark:text-gray-300">
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Operations & Performance</h3>
+                    <ul class="space-y-3 text-gray-600">
                         <li class="flex items-start">
                             <i class="fas fa-check text-primary mr-3 mt-1"></i>
                             Process optimization
@@ -546,13 +488,13 @@
                     </ul>
                 </div>
 
-                <div class="bg-white dark:bg-dark-card rounded-2xl p-6 md:p-8 shadow-lg card-hover animate-on-scroll border border-gray-100 dark:border-dark-border"
+                <div class="bg-white rounded-2xl p-6 md:p-8 shadow-lg card-hover animate-on-scroll border border-gray-100"
                     style="transition-delay: 0.2s;">
                     <div class="service-icon">
                         <i class="fas fa-rocket"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">Transformation</h3>
-                    <ul class="space-y-3 text-gray-600 dark:text-gray-300">
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Transformation</h3>
+                    <ul class="space-y-3 text-gray-600">
                         <li class="flex items-start">
                             <i class="fas fa-check text-primary mr-3 mt-1"></i>
                             Organizational design
@@ -568,13 +510,13 @@
                     </ul>
                 </div>
 
-                <div class="bg-white dark:bg-dark-card rounded-2xl p-6 md:p-8 shadow-lg card-hover animate-on-scroll border border-gray-100 dark:border-dark-border"
+                <div class="bg-white rounded-2xl p-6 md:p-8 shadow-lg card-hover animate-on-scroll border border-gray-100"
                     style="transition-delay: 0.3s;">
                     <div class="service-icon">
                         <i class="fas fa-handshake"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">Advisory Services</h3>
-                    <ul class="space-y-3 text-gray-600 dark:text-gray-300">
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Advisory Services</h3>
+                    <ul class="space-y-3 text-gray-600">
                         <li class="flex items-start">
                             <i class="fas fa-check text-primary mr-3 mt-1"></i>
                             Executive advisory
@@ -594,47 +536,47 @@
     </section>
 
     <!-- Case Studies Section -->
-    <section id="case-studies" class="section-padding bg-light-gray dark:bg-dark-bg">
+    <section id="case-studies" class="section-padding bg-light-gray">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12 md:mb-16">
-                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4 animate-on-scroll">
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 animate-on-scroll">
                     Client <span class="gradient-text">Success Stories</span>
                 </h2>
                 <div class="section-divider"></div>
-                <p class="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto animate-on-scroll">
+                <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto animate-on-scroll">
                     Real results from our strategic partnerships with forward-thinking organizations.
                 </p>
             </div>
 
             <div class="space-y-8 md:space-y-12">
-                <div class="bg-white dark:bg-dark-card rounded-2xl p-6 md:p-8 lg:p-12 shadow-xl card-hover slide-in-left">
+                <div class="bg-white rounded-2xl p-6 md:p-8 lg:p-12 shadow-xl card-hover slide-in-left">
                     <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
                         <div>
                             <div class="flex items-center mb-6">
                                 <div
-                                    class="w-12 md:w-16 h-12 md:h-16 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center mr-4">
-                                    <i class="fas fa-brain text-blue-600 dark:text-blue-400 text-xl md:text-2xl"></i>
+                                    class="w-12 md:w-16 h-12 md:h-16 bg-blue-100 rounded-lg flex items-center justify-center mr-4">
+                                    <i class="fas fa-brain text-blue-600 text-xl md:text-2xl"></i>
                                 </div>
                                 <div>
-                                    <h3 class="text-xl md:text-2xl font-bold text-gray-900 dark:text-white">Crave Daniels</h3>
-                                    <p class="text-gray-600 dark:text-gray-400">Technology Development Solutions</p>
+                                    <h3 class="text-xl md:text-2xl font-bold text-gray-900">Crave Daniels</h3>
+                                    <p class="text-gray-600">Technology Development Solutions</p>
                                 </div>
                             </div>
                             <div class="space-y-4">
                                 <div>
-                                    <h4 class="font-semibold text-gray-900 dark:text-white mb-2 flex items-center">
+                                    <h4 class="font-semibold text-gray-900 mb-2 flex items-center">
                                         <i class="fas fa-exclamation-triangle text-red-500 mr-2"></i>
                                         Challenge
                                     </h4>
-                                    <p class="text-gray-600 dark:text-gray-300">Strategic guidance needed to scale operations and
+                                    <p class="text-gray-600">Strategic guidance needed to scale operations and
                                         streamline delivery for enterprise clients.</p>
                                 </div>
                                 <div>
-                                    <h4 class="font-semibold text-gray-900 dark:text-white mb-2 flex items-center">
+                                    <h4 class="font-semibold text-gray-900 mb-2 flex items-center">
                                         <i class="fas fa-bullseye text-green-500 mr-2"></i>
                                         Our Impact
                                     </h4>
-                                    <p class="text-gray-600 dark:text-gray-300">Delivered scalable project management framework and
+                                    <p class="text-gray-600">Delivered scalable project management framework and
                                         productization strategy, aligning operations with growth targets.</p>
                                 </div>
                             </div>
@@ -646,34 +588,34 @@
                     </div>
                 </div>
 
-                <div class="bg-white dark:bg-dark-card rounded-2xl p-6 md:p-8 lg:p-12 shadow-xl card-hover slide-in-right">
+                <div class="bg-white rounded-2xl p-6 md:p-8 lg:p-12 shadow-xl card-hover slide-in-right">
                     <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
                         <div class="md:order-2">
                             <div class="flex items-center mb-6">
                                 <div
-                                    class="w-12 md:w-16 h-12 md:h-16 bg-red-100 dark:bg-red-900/30 rounded-lg flex items-center justify-center mr-4">
-                                    <i class="fas fa-fire text-red-600 dark:text-red-400 text-xl md:text-2xl"></i>
+                                    class="w-12 md:w-16 h-12 md:h-16 bg-red-100 rounded-lg flex items-center justify-center mr-4">
+                                    <i class="fas fa-fire text-red-600 text-xl md:text-2xl"></i>
                                 </div>
                                 <div>
-                                    <h3 class="text-xl md:text-2xl font-bold text-gray-900 dark:text-white">Omni Gas Ltd</h3>
-                                    <p class="text-gray-600 dark:text-gray-400">LPG Retail & Distribution</p>
+                                    <h3 class="text-xl md:text-2xl font-bold text-gray-900">Omni Gas Ltd</h3>
+                                    <p class="text-gray-600">LPG Retail & Distribution</p>
                                 </div>
                             </div>
                             <div class="space-y-4">
                                 <div>
-                                    <h4 class="font-semibold text-gray-900 dark:text-white mb-2 flex items-center">
+                                    <h4 class="font-semibold text-gray-900 mb-2 flex items-center">
                                         <i class="fas fa-exclamation-triangle text-red-500 mr-2"></i>
                                         Challenge
                                     </h4>
-                                    <p class="text-gray-600 dark:text-gray-300">Rapid growth challenges including pricing strategy,
+                                    <p class="text-gray-600">Rapid growth challenges including pricing strategy,
                                         operational bottlenecks, and financial modeling needs.</p>
                                 </div>
                                 <div>
-                                    <h4 class="font-semibold text-gray-900 dark:text-white mb-2 flex items-center">
+                                    <h4 class="font-semibold text-gray-900 mb-2 flex items-center">
                                         <i class="fas fa-bullseye text-green-500 mr-2"></i>
                                         Our Impact
                                     </h4>
-                                    <p class="text-gray-600 dark:text-gray-300">Developed multi-location pricing model, implemented key
+                                    <p class="text-gray-600">Developed multi-location pricing model, implemented key
                                         performance metrics, and provided operational expansion advisory.</p>
                                 </div>
                             </div>
@@ -685,35 +627,35 @@
                     </div>
                 </div>
 
-                <div class="bg-white dark:bg-dark-card rounded-2xl p-6 md:p-8 lg:p-12 shadow-xl card-hover slide-in-left">
+                <div class="bg-white rounded-2xl p-6 md:p-8 lg:p-12 shadow-xl card-hover slide-in-left">
                     <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
                         <div>
                             <div class="flex items-center mb-6">
                                 <div
-                                    class="w-12 md:w-16 h-12 md:h-16 bg-purple-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center mr-4">
+                                    class="w-12 md:w-16 h-12 md:h-16 bg-purple-100 rounded-lg flex items-center justify-center mr-4">
                                     <!-- <i class="fas fa-rocket text-purple-600 text-xl md:text-2xl"></i> -->
                                     <img src="./assets/hive.webp" alt="hive logo" class="w-8 h-8">
                                 </div>
                                 <div>
-                                    <h3 class="text-xl md:text-2xl font-bold text-gray-900 dark:text-white">The Hive Incubator</h3>
-                                    <p class="text-gray-600 dark:text-gray-400">Business Incubator & Investor</p>
+                                    <h3 class="text-xl md:text-2xl font-bold text-gray-900">The Hive Incubator</h3>
+                                    <p class="text-gray-600">Business Incubator & Investor</p>
                                 </div>
                             </div>
                             <div class="space-y-4">
                                 <div>
-                                    <h4 class="font-semibold text-gray-900 dark:text-white mb-2 flex items-center">
+                                    <h4 class="font-semibold text-gray-900 mb-2 flex items-center">
                                         <i class="fas fa-exclamation-triangle text-red-500 mr-2"></i>
                                         Challenge
                                     </h4>
-                                    <p class="text-gray-600 dark:text-gray-300">Needed structured business development support and
+                                    <p class="text-gray-600">Needed structured business development support and
                                         capacity-building systems for startup acceleration.</p>
                                 </div>
                                 <div>
-                                    <h4 class="font-semibold text-gray-900 dark:text-white mb-2 flex items-center">
+                                    <h4 class="font-semibold text-gray-900 mb-2 flex items-center">
                                         <i class="fas fa-bullseye text-green-500 mr-2"></i>
                                         Our Impact
                                     </h4>
-                                    <p class="text-gray-600 dark:text-gray-300">Designed mentorship programs, business clinic frameworks,
+                                    <p class="text-gray-600">Designed mentorship programs, business clinic frameworks,
                                         and startup advisory models that enhanced program delivery.</p>
                                 </div>
                             </div>
@@ -728,14 +670,14 @@
     </section>
 
     <!-- Consulting Workflow Section -->
-    <section id="workflow" class="section-padding bg-white dark:bg-dark-bg">
+    <section id="workflow" class="section-padding bg-white">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12 md:mb-16">
-                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4 animate-on-scroll">
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 animate-on-scroll">
                     Our <span class="gradient-text">Consulting Process</span>
                 </h2>
                 <div class="section-divider"></div>
-                <p class="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto animate-on-scroll">
+                <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto animate-on-scroll">
                     A structured approach to solving complex business challenges and delivering measurable impact.
                 </p>
             </div>
@@ -755,8 +697,8 @@
                                     1</div>
                             </div>
                         </div>
-                        <h3 class="text-lg md:text-xl font-bold text-gray-900 dark:text-white mb-3">Discovery & Diagnosis</h3>
-                        <p class="text-gray-600 dark:text-gray-300 mb-4 text-sm md:text-base">
+                        <h3 class="text-lg md:text-xl font-bold text-gray-900 mb-3">Discovery & Diagnosis</h3>
+                        <p class="text-gray-600 mb-4 text-sm md:text-base">
                             We start by listening. Through stakeholder interviews, document reviews, and data analysis,
                             we get to the heart of your organization's challenges.
                         </p>
@@ -780,8 +722,8 @@
                                     2</div>
                             </div>
                         </div>
-                        <h3 class="text-lg md:text-xl font-bold text-gray-900 dark:text-white mb-3">Opportunity Mapping</h3>
-                        <p class="text-gray-600 dark:text-gray-300 mb-4 text-sm md:text-base">
+                        <h3 class="text-lg md:text-xl font-bold text-gray-900 mb-3">Opportunity Mapping</h3>
+                        <p class="text-gray-600 mb-4 text-sm md:text-base">
                             Once the problem is defined, we map out opportunities for change—identifying quick wins and
                             long-term strategic levers.
                         </p>
@@ -805,8 +747,8 @@
                                     3</div>
                             </div>
                         </div>
-                        <h3 class="text-lg md:text-xl font-bold text-gray-900 dark:text-white mb-3">Solution Design</h3>
-                        <p class="text-gray-600 dark:text-gray-300 mb-4 text-sm md:text-base">
+                        <h3 class="text-lg md:text-xl font-bold text-gray-900 mb-3">Solution Design</h3>
+                        <p class="text-gray-600 mb-4 text-sm md:text-base">
                             We design practical, evidence-based strategies and operational improvements aligned with
                             your unique goals.
                         </p>
@@ -830,8 +772,8 @@
                                     4</div>
                             </div>
                         </div>
-                        <h3 class="text-lg md:text-xl font-bold text-gray-900 dark:text-white mb-3">Implementation Support</h3>
-                        <p class="text-gray-600 dark:text-gray-300 mb-4 text-sm md:text-base">
+                        <h3 class="text-lg md:text-xl font-bold text-gray-900 mb-3">Implementation Support</h3>
+                        <p class="text-gray-600 mb-4 text-sm md:text-base">
                             We don't just hand over a report. We help drive execution with hands-on support and change
                             management tools.
                         </p>
@@ -855,8 +797,8 @@
                                     5</div>
                             </div>
                         </div>
-                        <h3 class="text-lg md:text-xl font-bold text-gray-900 dark:text-white mb-3">Review & Sustain</h3>
-                        <p class="text-gray-600 dark:text-gray-300 mb-4 text-sm md:text-base">
+                        <h3 class="text-lg md:text-xl font-bold text-gray-900 mb-3">Review & Sustain</h3>
+                        <p class="text-gray-600 mb-4 text-sm md:text-base">
                             We track performance and measure results, embedding feedback loops to sustain improvements
                             long-term.
                         </p>
@@ -899,15 +841,15 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="section-padding bg-light-gray dark:bg-dark-bg">
+    <section id="contact" class="section-padding bg-light-gray">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid lg:grid-cols-2 gap-12 md:gap-16">
                 <div class="animate-on-scroll">
-                    <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+                    <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
                         Let's <span class="gradient-text">Connect</span>
                     </h2>
                     <div class="section-divider"></div>
-                    <p class="text-base md:text-lg text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
+                    <p class="text-base md:text-lg text-gray-600 mb-8 leading-relaxed">
                         Interested in learning more about how Emsville Pro Inc. can help your organization? Reach out to
                         schedule a consultation or ask questions about our services.
                     </p>
@@ -918,9 +860,9 @@
                                 <i class="fas fa-envelope text-primary text-xl"></i>
                             </div>
                             <div>
-                                <h3 class="font-semibold text-gray-900 dark:text-white">Email Us</h3>
+                                <h3 class="font-semibold text-gray-900">Email Us</h3>
                                 <a href="mailto:info@emsvillepro.com"
-                                    class="text-gray-600 hover:text-primary transition-colors dark:text-gray-300 dark:hover:text-primary">info@emsvillepro.com</a>
+                                    class="text-gray-600 hover:text-primary transition-colors">info@emsvillepro.com</a>
                             </div>
                         </div>
 
@@ -929,9 +871,9 @@
                                 <i class="fas fa-phone text-secondary text-xl"></i>
                             </div>
                             <div>
-                                <h3 class="font-semibold text-gray-900 dark:text-white">Call Us</h3>
+                                <h3 class="font-semibold text-gray-900">Call Us</h3>
                                 <a href="tel:6476170931"
-                                    class="text-gray-600 hover:text-secondary transition-colors dark:text-gray-300 dark:hover:text-secondary">(647) 617-0931</a>
+                                    class="text-gray-600 hover:text-secondary transition-colors">(647) 617-0931</a>
                             </div>
                         </div>
 
@@ -940,25 +882,25 @@
                                 <i class="fas fa-map-marker-alt text-purple-500 text-xl"></i>
                             </div>
                             <div>
-                                <h3 class="font-semibold text-gray-900 dark:text-white">Location</h3>
-                                <p class="text-gray-600 dark:text-gray-300">London, Ontario Canada</p>
+                                <h3 class="font-semibold text-gray-900">Location</h3>
+                                <p class="text-gray-600">London, Ontario Canada</p>
                             </div>
                         </div>
                     </div>
 
                     <div class="mt-8 md:mt-12">
-                        <h3 class="text-lg md:text-xl font-semibold text-gray-900 dark:text-white mb-4">Follow Us</h3>
+                        <h3 class="text-lg md:text-xl font-semibold text-gray-900 mb-4">Follow Us</h3>
                         <div class="flex space-x-4">
                             <a href="#"
-                                class="w-10 h-10 rounded-full bg-gray-100 hover:bg-primary hover:text-white flex items-center justify-center text-gray-600 transition-colors dark:bg-dark-card dark:text-gray-300 dark:hover:bg-primary">
+                                class="w-10 h-10 rounded-full bg-gray-100 hover:bg-primary hover:text-white flex items-center justify-center text-gray-600 transition-colors">
                                 <i class="fab fa-linkedin-in"></i>
                             </a>
                             <a href="#"
-                                class="w-10 h-10 rounded-full bg-gray-100 hover:bg-blue-500 hover:text-white flex items-center justify-center text-gray-600 transition-colors dark:bg-dark-card dark:text-gray-300 dark:hover:bg-blue-500">
+                                class="w-10 h-10 rounded-full bg-gray-100 hover:bg-blue-500 hover:text-white flex items-center justify-center text-gray-600 transition-colors">
                                 <i class="fab fa-twitter"></i>
                             </a>
                             <a href="#"
-                                class="w-10 h-10 rounded-full bg-gray-100 hover:bg-pink-600 hover:text-white flex items-center justify-center text-gray-600 transition-colors dark:bg-dark-card dark:text-gray-300 dark:hover:bg-pink-600">
+                                class="w-10 h-10 rounded-full bg-gray-100 hover:bg-pink-600 hover:text-white flex items-center justify-center text-gray-600 transition-colors">
                                 <i class="fab fa-instagram"></i>
                             </a>
                         </div>
@@ -966,33 +908,33 @@
                 </div>
 
                 <div class="animate-on-scroll" style="transition-delay: 0.2s;">
-                    <div class="bg-white dark:bg-dark-card rounded-2xl p-6 md:p-8 shadow-lg">
-                        <h3 class="text-xl md:text-2xl font-bold text-gray-900 dark:text-white mb-6">Send Us a Message</h3>
+                    <div class="bg-white rounded-2xl p-6 md:p-8 shadow-lg">
+                        <h3 class="text-xl md:text-2xl font-bold text-gray-900 mb-6">Send Us a Message</h3>
                         <form class="space-y-6">
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                                 <div>
-                                    <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Name</label>
+                                    <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
                                     <input type="text" id="name"
-                                        class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent transition-all dark:bg-dark-bg dark:border-dark-border dark:text-white">
+                                        class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent transition-all">
                                 </div>
                                 <div>
                                     <label for="email"
-                                        class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Email</label>
+                                        class="block text-sm font-medium text-gray-700 mb-1">Email</label>
                                     <input type="email" id="email"
-                                        class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent transition-all dark:bg-dark-bg dark:border-dark-border dark:text-white">
+                                        class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent transition-all">
                                 </div>
                             </div>
                             <div>
                                 <label for="subject"
-                                    class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Subject</label>
+                                    class="block text-sm font-medium text-gray-700 mb-1">Subject</label>
                                 <input type="text" id="subject"
-                                    class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent transition-all dark:bg-dark-bg dark:border-dark-border dark:text-white">
+                                    class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent transition-all">
                             </div>
                             <div>
                                 <label for="message"
-                                    class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Message</label>
+                                    class="block text-sm font-medium text-gray-700 mb-1">Message</label>
                                 <textarea id="message" rows="5"
-                                    class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent transition-all dark:bg-dark-bg dark:border-dark-border dark:text-white"></textarea>
+                                    class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent transition-all"></textarea>
                             </div>
                             <div>
                                 <button type="submit"
@@ -1094,21 +1036,21 @@
     <div id="mobile-menu" class="fixed inset-0  z-50 hidden glass-morphism"
         style="background-image: url('./assets/bg.jpg');">
         <div class="flex justify-end p-6">
-            <button id="mobile-menu-close" class="text-gray-700 hover:text-primary dark:text-gray-300 dark:hover:text-primary">
+            <button id="mobile-menu-close" class="text-gray-700 hover:text-primary">
                 <i class="fas fa-times text-2xl"></i>
             </button>
         </div>
         <div class="flex flex-col items-center justify-center h-full px-6 space-y-8">
-            <a href="#home" class="text-2xl font-medium text-gray-900 hover:text-primary transition-colors dark:text-white dark:hover:text-primary">Home</a>
-            <a href="#about" class="text-2xl font-medium text-gray-900 hover:text-primary transition-colors dark:text-white dark:hover:text-primary">About</a>
+            <a href="#home" class="text-2xl font-medium text-gray-900 hover:text-primary transition-colors">Home</a>
+            <a href="#about" class="text-2xl font-medium text-gray-900 hover:text-primary transition-colors">About</a>
             <a href="#services"
-                class="text-2xl font-medium text-gray-900 hover:text-primary transition-colors dark:text-white dark:hover:text-primary">Services</a>
-            <a href="#case-studies" class="text-2xl font-medium text-gray-900 hover:text-primary transition-colors dark:text-white dark:hover:text-primary">Case
+                class="text-2xl font-medium text-gray-900 hover:text-primary transition-colors">Services</a>
+            <a href="#case-studies" class="text-2xl font-medium text-gray-900 hover:text-primary transition-colors">Case
                 Studies</a>
             <a href="#workflow"
-                class="text-2xl font-medium text-gray-900 hover:text-primary transition-colors dark:text-white dark:hover:text-primary">Process</a>
+                class="text-2xl font-medium text-gray-900 hover:text-primary transition-colors">Process</a>
             <a href="#contact"
-                class="text-2xl font-medium text-gray-900 hover:text-primary transition-colors dark:text-white dark:hover:text-primary">Contact</a>
+                class="text-2xl font-medium text-gray-900 hover:text-primary transition-colors">Contact</a>
             <button class="btn-primary text-white px-8 py-3 rounded-lg font-medium mt-8">Get Started</button>
         </div>
     </div>
@@ -1277,67 +1219,41 @@
         tick();
     </script>
 
-    <script>
-        const btn = document.querySelector('.magnet');
-        btn.addEventListener('mousemove', (e) => {
-            const { left, top, width, height } = btn.getBoundingClientRect();
-            const x = e.clientX - (left + width / 2);
-            const y = e.clientY - (top + height / 2);
+        <script>
+            const btn = document.querySelector('.magnet');
+            btn.addEventListener('mousemove', (e) => {
+                const { left, top, width, height } = btn.getBoundingClientRect();
+                const x = e.clientX - (left + width / 2);
+                const y = e.clientY - (top + height / 2);
 
-            // add tilt effect
-            let tiltVal = 20;
-            const rotateX = (y / height) * tiltVal;
-            const rotateY = (x / width) * -tiltVal;
+                // add tilt effect
+                let tiltVal = 20;
+                const rotateX = (y / height) * tiltVal;
+                const rotateY = (x / width) * -tiltVal;
 
-            let strength = 0.3;
-            gsap.to(btn, {
-                x: x * strength,
-                y: y * strength,
-                rotationX: rotateX,
-                rotationY: rotateY,
-                transformPerspective: 500,
-                transformOrigin: "center center",
-                duration: 0.3,
-                ease: "power2.out"
+                let strength = 0.3;
+                gsap.to(btn, {
+                    x: x * strength,
+                    y: y * strength,
+                    rotationX: rotateX,
+                    rotationY: rotateY,
+                    transformPerspective: 500,
+                    transformOrigin: "center center",
+                    duration: 0.3,
+                    ease: "power2.out"
+                })
             })
-        })
-        // return back the button to inital position
-        btn.addEventListener('mouseleave', () => {
-            gsap.to(btn, {
-                x: 0,
-                y: 0,
-                rotationX: 0,
-                rotationY: 0,
-                duration: 0.3,
-                ease: 'power2.out'
+            // return back the button to inital position
+            btn.addEventListener('mouseleave', () => {
+                gsap.to(btn, {
+                    x: 0,
+                    y: 0,
+                    rotationX: 0,
+                    rotationY: 0,
+                    duration: 0.3,
+                    ease: 'power2.out'
+                })
             })
-        })
-    </script>
-
-    <script>
-        // Dark mode toggle functionality
-        const themeToggle = document.getElementById('theme-toggle');
-        const html = document.documentElement;
-
-        // Check for saved user preference or use system preference
-        const savedTheme = localStorage.getItem('theme') || 
-                          (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-        
-        // Apply the saved theme
-        if (savedTheme === 'dark') {
-            html.classList.add('dark');
-        } else {
-            html.classList.remove('dark');
-        }
-
-        // Toggle theme on button click
-        themeToggle.addEventListener('click', () => {
-            html.classList.toggle('dark');
-            
-            // Save the current theme to localStorage
-            const currentTheme = html.classList.contains('dark') ? 'dark' : 'light';
-            localStorage.setItem('theme', currentTheme);
-        });
     </script>
 </body>
 

@@ -51,6 +51,12 @@
             scroll-behavior: smooth;
         }
 
+        .magnet{
+            position: relative;
+            display: inline-block;
+            transform-style: preserve-3d;
+        }
+
         .glass-morphism {
             background: rgba(255, 255, 255, 0.25);
             backdrop-filter: blur(20px);
@@ -272,6 +278,7 @@
 </head>
 
 <body class="bg-white text-gray-900 font-inter">
+    <h1 hidden class="hidden" style="display: none important;">Emsville Pro Inc.</h1>
     <!-- Navigation -->
     <nav class="fixed top-0 w-full z-50 glass-morphism">
         <div class="container mx-auto px-4 py-5 sm:px-6 lg:px-8">
@@ -368,7 +375,7 @@
     <section id="about" class="section-padding bg-light-gray">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid lg:grid-cols-2 gap-12 md:gap-16 items-center">
-                <div class="slide-in-left">
+                <div class="slide-in-left magnet">
                     <img src="./assets/fola.jpeg" alt="Folajomi Adegbulugbe" class="rounded-2xl shadow-xl w-full">
                 </div>
                 <div class="slide-in-right">
@@ -1042,6 +1049,8 @@
     </button>
     <div class="circle"></div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
     <script>
         // Mobile Menu Toggle
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
@@ -1195,6 +1204,43 @@
 
         // Start the animation loop
         tick();
+    </script>
+
+        <script>
+            const btn = document.querySelector('.magnet');
+            btn.addEventListener('mousemove', (e) => {
+                const { left, top, width, height } = btn.getBoundingClientRect();
+                const x = e.clientX - (left + width / 2);
+                const y = e.clientY - (top + height / 2);
+
+                // add tilt effect
+                let tiltVal = 20;
+                const rotateX = (y / height) * tiltVal;
+                const rotateY = (x / width) * -tiltVal;
+
+                let strength = 0.3;
+                gsap.to(btn, {
+                    x: x * strength,
+                    y: y * strength,
+                    rotationX: rotateX,
+                    rotationY: rotateY,
+                    transformPerspective: 500,
+                    transformOrigin: "center center",
+                    duration: 0.3,
+                    ease: "power2.out"
+                })
+            })
+            // return back the button to inital position
+            btn.addEventListener('mouseleave', () => {
+                gsap.to(btn, {
+                    x: 0,
+                    y: 0,
+                    rotationX: 0,
+                    rotationY: 0,
+                    duration: 0.3,
+                    ease: 'power2.out'
+                })
+            })
     </script>
 </body>
 

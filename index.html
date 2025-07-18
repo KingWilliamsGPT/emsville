@@ -17,9 +17,16 @@
         rel="stylesheet">
     <link rel="icon" href="./assets/favicon.ico" type="image/x-icon">
     <style>
-        @font-face {
+        /* @font-face {
             font-family: 'Futura Book';
             src: url('./assets/fonts/Futura-Book.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        } */
+        @font-face {
+            font-family: 'Futura';
+            src: url('./assets/fonts/futura-book.woff2') format('woff2'),
+                url('./assets/fonts/Futura-Book.ttf') format('truetype');
             font-weight: normal;
             font-style: normal;
         }
@@ -30,7 +37,8 @@
             theme: {
                 extend: {
                     fontFamily: {
-                        'futura': [ 'Futura Book', 'Inter', 'sans-serif']
+                        // 'futura': [ 'futura-book', 'Futura-Book', 'Futura Book', 'Inter', 'sans-serif']
+                        sans: [ 'futura-book', 'Futura-Book', 'Futura Book', 'Inter', 'sans-serif'],
                     },
                     colors: {
                         'primary': '#8B5CF6',
@@ -62,7 +70,15 @@
     </script>
     <style>
         * {
-            font-family: 'Futura Book', 'Inter', sans-serif;
+            /* font-family: 'Futura Book', 'Inter', sans-serif; */
+            font-family: 'Futura', sans-serif;
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Futura', sans-serif;
         }
 
         
@@ -350,7 +366,7 @@
 
 </head>
 
-<body class="bg-white text-gray-900 font-inter">
+<body class="bg-white text-gray-900 font-sans">
     <h1 hidden class="hidden" style="display: none important;">Emsville Pro Inc.</h1>
     <!-- Navigation -->
     <nav class="fixed top-0 w-full z-50 glass-morphism">
